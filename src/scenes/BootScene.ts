@@ -3,8 +3,9 @@ import { SCENE_KEYS, ASSET_KEYS, ANIM_KEYS, AUDIO_KEYS } from '../config/constan
 import { audioManager } from '../systems/AudioManager.ts';
 import { AssetGenerator } from '../utils/assetGenerator.ts';
 
-const SPRITE_BASE = '/assets/sprites/';
-const AUDIO_BASE  = '/assets/audio/';
+const ASSET_BASE = import.meta.env.BASE_URL;
+const SPRITE_BASE = `${ASSET_BASE}assets/sprites/`;
+const AUDIO_BASE  = `${ASSET_BASE}assets/audio/`;
 
 /**
  * BootScene — loads all original Flappy Bird assets via Phaser's file loader,
