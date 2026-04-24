@@ -1,0 +1,23 @@
+{
+  "name": "flappy-bird-remake",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "tailwindcss": "^4.2.4",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "@types/howler": "^2.2.12",
+    "howler": "^2.2.4",
+    "phaser": "^4.0.0",
+    "zustand": "^5.0.12"
+  }
+}

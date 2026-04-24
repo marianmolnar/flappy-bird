@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* === Global reset === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0a0a1a;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Game container — full-screen, Phaser canvas centred via CSS === */
+#game-container {
+  position: fixed;
+  inset: 0;
+  background: #0a0a1a;
+}
+
+#game-container canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* === UI overlays sit above canvas === */
+#menu-overlay,
+#gameover-overlay,
+#pause-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+/* === HUD — position/size set by JS to match canvas bounds === */
+#hud-container {
+  pointer-events: none;
+}
+
+/* === Toast container === */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* === Prevent tap highlight on mobile === */
+button {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* === Scrollbar hide for overlay panels === */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
