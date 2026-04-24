@@ -1,27 +1,29 @@
-# 🐦 Flappy Bird — Moderní Remake
+# 🐦 Flappy Bird — Modern Remake
 
-Kompletní moderní remake klasické hry Flappy Bird jako webová aplikace. Postaveno na Phaser 3, TypeScript a Vite s plným feature setem včetně achievementů, skin pickeru, day/night cyklu a procedurálně generovaných assetů.
+A modern web remake of the classic Flappy Bird game. Built with Phaser, TypeScript, Vite, and Tailwind CSS, with unlockable skins, achievements, difficulty modes, persistent stats, and original-style sprites and audio.
+
+Live demo: https://marianmolnar.github.io/flappy-bird/
 
 ---
 
-## Screenshoty
+## Screens
 
 ```
 ┌─────────────────────────┐   ┌─────────────────────────┐   ┌─────────────────────────┐
-│      HLAVNÍ MENU        │   │        HRA              │   │      GAME OVER          │
+│       MAIN MENU         │   │        GAME             │   │       GAME OVER         │
 │                         │   │                         │   │                         │
-│   🐦 Flappy Bird        │   │          0              │   │    ⏸ KONEC HRY          │
-│   Moderní remake        │   │                         │   │                         │
-│                         │   │    [ptáček ~~>]         │   │        🥇               │
-│  Nejlepší: 42           │   │                         │   │    Zlatá medaile        │
-│  Her: 12  Průměr: 18    │   │  ══════════  ══════     │   │                         │
-│                         │   │              ══════     │   │   Skóre: 52  Best: 52   │
-│  [Žlutý][Modrý][Červ.]  │   │                         │   │   🏆 Nový rekord!       │
-│  [Duhový]               │   │  ══════════  ══════     │   │                         │
-│                         │   │              ══════     │   │      ↺ ZNOVU            │
-│  Obtížnost: Normální    │   │                         │   │      ≡ Menu             │
+│   🐦 Flappy Bird        │   │          0              │   │      GAME OVER          │
+│   Modern remake         │   │                         │   │                         │
+│                         │   │    [bird ~~>]           │   │        🥇               │
+│  Best: 42               │   │                         │   │      Gold Medal         │
+│  Games: 12  Avg: 18     │   │  ══════════  ══════     │   │                         │
+│                         │   │              ══════     │   │   Score: 52  Best: 52   │
+│  [Yellow][Blue][Red]    │   │                         │   │   🏆 New record!        │
+│  [Rainbow]              │   │  ══════════  ══════     │   │                         │
+│                         │   │              ══════     │   │      ↺ RETRY            │
+│  Difficulty: Normal     │   │                         │   │      ≡ Menu             │
 │                         │   │  /\/\/\/\/\/\/\/\/\/\   │   │                         │
-│      ▶ HRÁT             │   │  ////////////////////////   │                         │
+│      ▶ PLAY             │   │  ////////////////////////   │                         │
 └─────────────────────────┘   └─────────────────────────┘   └─────────────────────────┘
 ```
 
@@ -29,181 +31,184 @@ Kompletní moderní remake klasické hry Flappy Bird jako webová aplikace. Post
 
 ## Tech Stack
 
-| Technologie | Verze | Účel |
-|------------|-------|------|
-| **Phaser 3** | ^3.x | Herní engine (fyzika, scény, input, rendering) |
-| **TypeScript** | ^5.x | Type safety, strict mode |
-| **Vite** | ^8.x | Build tool, HMR dev server |
-| **Howler.js** | ^2.x | Pokročilá správa zvuků |
-| **Tailwind CSS** | ^4.x | UI overlay styling |
-| **Zustand** | ^5.x | State management s localStorage perzistencí |
-| **Web Audio API** | native | Procedurální generování zvuků |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **Phaser** | ^4.x | Game engine, physics, scenes, input, rendering |
+| **TypeScript** | ^6.x | Strict typing |
+| **Vite** | ^8.x | Build tool and development server |
+| **Tailwind CSS** | ^4.x | HTML overlay styling |
+| **Web Audio / OGG assets** | native | Game audio playback |
+| **localStorage** | native | Persistent progress and settings |
 
 ---
 
-## Instalace a spuštění
+## Installation
 
 ```bash
-# Klonování / vstup do složky
+# Enter the project directory
 cd flappy-bird-remake
 
-# Instalace závislostí
+# Install dependencies
 npm install
 
-# Spuštění dev serveru (http://localhost:3000)
+# Start the dev server
 npm run dev
 
-# Production build
+# Build for production
 npm run build
 
-# Preview production buildu
+# Preview the production build
 npm run preview
 ```
 
----
-
-## Ovládání
-
-| Akce | Desktop | Mobil |
-|------|---------|-------|
-| Skok / Mávnutí | `Mezerník` nebo `Klik myší` | Tap |
-| Pauza | `P` nebo `ESC` | — |
-| Mute zvuku | `M` | Tlačítko 🔊 v HUD |
-| Debug mód | `D` | — |
-| Restart (Game Over) | `Mezerník` nebo `Enter` | Tlačítko ↺ |
-| Menu (Game Over) | `ESC` | Tlačítko ≡ |
+The local dev server runs on `http://localhost:3000`.
 
 ---
 
-## Funkce
+## Controls
 
-### Herní mechaniky
-- [x] Phaser Arcade Physics s gravitací a skokem
-- [x] Rotace ptáčka podle vertikální rychlosti (-20° až +90°)
-- [x] 3-frame animace křídel
-- [x] Procedurálně generované páry trubek
-- [x] Náhodná mezera (min 140px, max 200px, škáluje dle obtížnosti)
-- [x] Postupné zrychlování každých 10 bodů (+5 %)
-- [x] Combo systém — bonus +2 za průlet těsně středem
-- [x] Detekce kolizí s trubkami a zemí (AABB, shrinknutý hitbox)
+| Action | Desktop | Mobile |
+|--------|---------|--------|
+| Flap | `Space` or mouse click | Tap |
+| Pause | `P` or `ESC` | — |
+| Mute sound | `M` | Sound button in the HUD |
+| Debug mode | `D` | — |
+| Restart after game over | `Space` or `Enter` | Retry button |
+| Return to menu after game over | `ESC` | Menu button |
 
-### Vizuál
-- [x] Parallax scrolling pozadí (3 vrstvy: obloha, mraky, silueta města)
-- [x] Dynamický cyklus den/noc (Ráno → Západ → Noc → Úsvit, každých 20 bodů)
-- [x] Plynulé fade přechody mezi fázemi dne
-- [x] Procedurálně generované canvas assety (ptáček, trubky, pozadí, mraky, město)
-- [x] Screen shake při smrti (Phaser camera shake)
-- [x] Particle efekty: peří při kolizi, třpytky při průletu trubkou
-- [x] Fade in/out přechody mezi scénami
+---
 
-### Scény
-- [x] **BootScene** — loading bar, generování assetů a zvuků
-- [x] **MenuScene** — titulka, statistiky, skin picker, nastavení, achievementy
-- [x] **GameScene** — aktivní hra s HUD
-- [x] **GameOverScene** — skóre, medaile, restart/menu
-- [x] **PauseScene** — pauza (překryvná scéna)
+## Features
+
+### Gameplay
+- [x] Phaser Arcade Physics with gravity and flap velocity
+- [x] Bird rotation based on vertical speed
+- [x] Three-frame wing animation
+- [x] Procedurally spawned pipe pairs
+- [x] Difficulty-based pipe speed and gap size
+- [x] Score tracking with persistent high score
+- [x] Collision detection for pipes and ground
+
+### Visuals
+- [x] Original-style Flappy Bird sprites
+- [x] Scrolling background and ground
+- [x] Day/night background variants
+- [x] Screen shake on collision
+- [x] Particle effects for collisions and scoring
+- [x] Fade transitions between scenes
+
+### Scenes
+- [x] **BootScene** — loading screen and asset preload
+- [x] **MenuScene** — main menu, stats, skin picker, settings, achievements
+- [x] **GameScene** — active gameplay and HUD
+- [x] **GameOverScene** — score, medal, retry/menu actions
+- [x] **PauseScene** — pause overlay
 
 ### UI & UX
-- [x] Score HUD s combo indikátorem
-- [x] Mute tlačítko v HUD
-- [x] Skin picker (4 varianty, zamykání dle high score)
-- [x] Nastavení obtížnosti (Lehká / Normální / Těžká)
-- [x] Přepínač zvuků a hudby
-- [x] Statistiky: celkem her, průměrné skóre, nejlepší skóre
-- [x] Toast notifikace pro achievementy
-- [x] Responsive design (Scale.FIT, portrait i landscape)
+- [x] Score HUD with combo indicator
+- [x] Sound toggle in the HUD and menus
+- [x] Skin picker with score-based unlocks
+- [x] Difficulty settings: Easy, Normal, Hard
+- [x] Persistent stats: total games, average score, best score
+- [x] Achievement toast notifications
+- [x] Responsive Phaser scaling for portrait and landscape screens
 
-### Achievementy
-- [x] 🐦 **První let** — dosáhni skóre 1
-- [x] 🌱 **Začátečník** — dosáhni skóre 10
-- [x] ⚡ **Pokročilý** — dosáhni skóre 25
-- [x] 🔥 **Expert** — dosáhni skóre 50
-- [x] 👑 **Legenda** — dosáhni skóre 100
-- [x] 🏃 **Vytrvalec** — odehraj 10 her
-- [x] 🎨 **Sběratel** — odemkni všechny skiny
+### Achievements
+- [x] 🐦 **First Flight** — reach a score of 1
+- [x] 🌱 **Beginner** — reach a score of 10
+- [x] ⚡ **Advanced** — reach a score of 25
+- [x] 🔥 **Expert** — reach a score of 50
+- [x] 👑 **Legend** — reach a score of 100
+- [x] 🏃 **Veteran** — play 10 games
+- [x] 🎨 **Collector** — unlock every skin
 
-### Skiny ptáčka
-| Skin | Barva | Podmínka |
-|------|-------|----------|
-| Žlutý | #FFD700 | Výchozí |
-| Modrý | #4FC3F7 | High score 25+ |
-| Červený | #FF5252 | High score 50+ |
-| Duhový | #FF6EC7 | High score 100+ |
+### Bird Skins
 
-### Medaile (Game Over)
-| Medaile | Skóre |
-|---------|-------|
-| 🥉 Bronzová | 10+ |
-| 🥈 Stříbrná | 25+ |
-| 🥇 Zlatá | 50+ |
-| 💎 Platinová | 100+ |
+| Skin | Color | Unlock |
+|------|-------|--------|
+| Yellow | #FFD700 | Default |
+| Blue | #4FC3F7 | High score 25+ |
+| Red | #FF5252 | High score 50+ |
+| Rainbow | #FF6EC7 | High score 100+ |
 
-### Zvuky (procedurální, Web Audio API)
-- [x] **Flap** — krátký swoosh při skoku
-- [x] **Score** — ding při průletu trubkou
-- [x] **Hit** — crash při kolizi
-- [x] **Die** — sestupný tón při smrti
-- [x] **Menu Click** — UI feedback
-- [x] **Ambient** — ambientní hudební smyčka (volitelná)
+### Medals
 
-### Perzistence
-- [x] Zustand vanilla store s localStorage backendem
-- [x] Automatické ukládání: high score, celkem her, skóre, skiny, achievementy
-- [x] Error handling pro private mode / quota exceeded
+| Medal | Score |
+|-------|-------|
+| 🥉 Bronze | 10+ |
+| 🥈 Silver | 25+ |
+| 🥇 Gold | 50+ |
+| 💎 Platinum | 100+ |
+
+### Audio
+- [x] **Flap** — wing sound
+- [x] **Score** — point sound
+- [x] **Hit** — collision sound
+- [x] **Die** — death sound
+- [x] **Menu Click** — UI feedback sound
+
+### Persistence
+- [x] High score
+- [x] Total games
+- [x] Score history
+- [x] Selected and unlocked skins
+- [x] Achievements
+- [x] Difficulty and sound settings
 
 ---
 
-## Struktura projektu
+## Project Structure
 
 ```
 flappy-bird-remake/
 ├── index.html                  # Entry HTML
-├── vite.config.ts              # Vite + Tailwind konfigurace
-├── tsconfig.json               # TypeScript strict config
+├── vite.config.ts              # Vite and Tailwind config
+├── tsconfig.json               # TypeScript config
 ├── package.json
 ├── README.md
 ├── public/
-│   └── favicon.svg             # Ptáček favicon
+│   ├── assets/                 # Sprites and audio files
+│   └── favicon.svg             # Favicon
 └── src/
-    ├── main.ts                 # Bootstrap + achievement toasts
-    ├── style.css               # Tailwind import + global styly
+    ├── main.ts                 # Bootstrap and achievement toasts
+    ├── style.css               # Tailwind import and global styles
     ├── config/
-    │   ├── constants.ts        # Veškeré herní konstanty
+    │   ├── constants.ts        # Game constants and asset keys
     │   └── gameConfig.ts       # Phaser game config factory
     ├── scenes/
-    │   ├── BootScene.ts        # Loading + asset generování
-    │   ├── MenuScene.ts        # Hlavní menu
-    │   ├── GameScene.ts        # Herní scéna (hlavní loop)
-    │   ├── GameOverScene.ts    # Game over overlay
-    │   └── PauseScene.ts       # Pauza (overlay scéna)
+    │   ├── BootScene.ts        # Loading and asset preload
+    │   ├── MenuScene.ts        # Main menu scene
+    │   ├── GameScene.ts        # Gameplay scene
+    │   ├── GameOverScene.ts    # Game over scene
+    │   └── PauseScene.ts       # Pause overlay scene
     ├── entities/
-    │   ├── Bird.ts             # Ptáček (physics, animace)
-    │   ├── Pipe.ts             # Pár trubek
-    │   ├── PipeManager.ts      # Spawnování a recyklace trubek
-    │   └── Background.ts       # Parallax + day/night cyklus
+    │   ├── Bird.ts             # Bird physics and animation
+    │   ├── Pipe.ts             # Pipe pair entity
+    │   ├── PipeManager.ts      # Pipe spawning and recycling
+    │   └── Background.ts       # Background and ground scrolling
     ├── systems/
-    │   ├── ScoreSystem.ts      # Skóre, combo, rychlost
-    │   ├── AchievementSystem.ts # Achievementy a skin unlocks
-    │   ├── AudioManager.ts     # Howler.js wrapper
-    │   └── ParticleSystem.ts   # Particle efekty
+    │   ├── ScoreSystem.ts      # Score, combo, and speed state
+    │   ├── AchievementSystem.ts # Achievements and skin unlocks
+    │   ├── AudioManager.ts     # Audio wrapper
+    │   └── ParticleSystem.ts   # Particle effects
     ├── store/
-    │   ├── gameStore.ts        # Zustand: progress + persistence
-    │   └── settingsStore.ts    # Zustand: nastavení
+    │   ├── gameStore.ts        # Progress and persistence
+    │   └── settingsStore.ts    # Settings persistence
     ├── ui/
     │   ├── MenuUI.ts           # HTML/Tailwind menu overlay
-    │   ├── HUD.ts              # In-game HUD (score, combo, debug)
+    │   ├── HUD.ts              # In-game HUD
     │   └── GameOverUI.ts       # Game over overlay
     ├── utils/
-    │   ├── storage.ts          # localStorage helper (safe)
-    │   ├── assetGenerator.ts   # Procedurální Canvas assety
-    │   └── soundGenerator.ts   # Web Audio API zvuky → Blob URL
+    │   ├── storage.ts          # Safe localStorage helper
+    │   ├── assetGenerator.ts   # Procedural canvas effects
+    │   └── soundGenerator.ts   # Procedural sound helpers
     └── types/
-        └── index.ts            # Sdílené TypeScript typy
+        └── index.ts            # Shared TypeScript types
 ```
 
 ---
 
-## Architektura
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -218,49 +223,47 @@ flappy-bird-remake/
 │                               └─────────┬────────┘  │
 │                    ┌───────────────────┘            │
 │                    ↓                                │
-│              ┌───────────┐                         │
-│              │GameOverScene│                        │
-│              └───────────┘                         │
+│              ┌───────────────┐                     │
+│              │GameOverScene  │                     │
+│              └───────────────┘                     │
 │                                                     │
 │  Systems: ScoreSystem │ AchievementSystem │ Audio   │
-│  UI: MenuUI (HTML) │ HUD (HTML) │ GameOverUI (HTML) │
-│  State: gameStore (Zustand) │ settingsStore         │
+│  UI: MenuUI │ HUD │ GameOverUI                    │
+│  State: gameStore │ settingsStore                  │
 └─────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Konfigurace (src/config/constants.ts)
-
-```typescript
-export const GAME_CONFIG = {
-  WIDTH: 400,
-  HEIGHT: 700,
-  GRAVITY: 1200,
-  JUMP_VELOCITY: -400,
-  PIPE_SPEED: 200,
-  PIPE_SPAWN_INTERVAL: 1500,
-  PIPE_GAP_MIN: 140,
-  PIPE_GAP_MAX: 200,
-  BIRD_SIZE: 34,
-  GROUND_HEIGHT: 100,
-  SPEED_INCREASE_PER_10_SCORE: 0.05,
-} as const;
-```
-
----
-
-## Vývoj
+## Development
 
 ```bash
-# Dev server s HMR
+# Dev server with HMR
 npm run dev
 
 # Type check
 npx tsc --noEmit
 
-# Build + preview
-npm run build && npm run preview
+# Build and preview
+npm run build
+npm run preview
+```
+
+---
+
+## Deployment
+
+The project is configured for GitHub Pages with:
+
+```ts
+base: '/flappy-bird/'
+```
+
+Build and publish the `dist` folder:
+
+```bash
+npm run build
+npx gh-pages -d dist --dotfiles
 ```
 
 ---
@@ -269,4 +272,4 @@ npm run build && npm run preview
 
 MIT © 2024
 
-Tento projekt je fan remake pro vzdělávací účely. Flappy Bird je původní dílo Dong Nguyen.
+This is a fan remake built for educational purposes. Flappy Bird is the original work of Dong Nguyen.

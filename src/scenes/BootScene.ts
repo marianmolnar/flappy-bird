@@ -38,7 +38,7 @@ export class BootScene extends Phaser.Scene {
 
     this.progressBar = this.add.graphics();
 
-    this.loadingText = this.add.text(width / 2, height / 2 + 30, 'Načítání...', {
+    this.loadingText = this.add.text(width / 2, height / 2 + 30, 'Loading...', {
       fontSize: '12px', color: '#aaaaaa',
     }).setOrigin(0.5);
 
@@ -114,7 +114,7 @@ export class BootScene extends Phaser.Scene {
     audioManager.initPhaser(this);
 
     this._drawProgress(1);
-    this.loadingText.setText('Hotovo!');
+    this.loadingText.setText('Ready!');
 
     this.cameras.main.fadeOut(400, 0, 0, 0);
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {

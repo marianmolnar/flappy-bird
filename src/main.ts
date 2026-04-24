@@ -38,7 +38,7 @@ function setupAchievementToasts(): void {
       transform: translateY(12px);
       white-space: nowrap;
     `;
-    toast.textContent = `🏆 Achievement odemčen: ${detail.id}`;
+    toast.textContent = `🏆 Achievement unlocked: ${detail.id}`;
     container.appendChild(toast);
 
     requestAnimationFrame(() => {

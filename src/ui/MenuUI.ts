@@ -62,14 +62,14 @@ export class MenuUI {
     document.getElementById('sound-toggle')?.addEventListener('click', () => {
       callbacks.onSoundToggle();
       const el = document.getElementById('sound-toggle');
-      if (el) el.textContent = getSettings().soundEnabled ? '🔊 Zvuk: ZAP' : '🔇 Zvuk: VYP';
+      if (el) el.textContent = getSettings().soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF';
     });
 
     // Music toggle
     document.getElementById('music-toggle')?.addEventListener('click', () => {
       callbacks.onMusicToggle();
       const el = document.getElementById('music-toggle');
-      if (el) el.textContent = getSettings().musicEnabled ? '🎵 Hudba: ZAP' : '🎵 Hudba: VYP';
+      if (el) el.textContent = getSettings().musicEnabled ? '🎵 Music: ON' : '🎵 Music: OFF';
     });
   }
 
@@ -115,7 +115,7 @@ export class MenuUI {
     `).join('');
 
     const diffBtns = (['easy', 'normal', 'hard'] as Difficulty[]).map((d) => {
-      const labels: Record<Difficulty, string> = { easy: 'Lehká', normal: 'Normální', hard: 'Těžká' };
+      const labels: Record<Difficulty, string> = { easy: 'Easy', normal: 'Normal', hard: 'Hard' };
       const selected = d === difficulty;
       return `
         <button class="diff-btn flex-1 py-1.5 rounded-lg text-sm font-bold border border-white/30
@@ -129,53 +129,53 @@ export class MenuUI {
       <div class="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm">
         <div class="w-full max-w-sm mx-4 bg-gray-900/90 rounded-3xl p-6 border border-white/10 shadow-2xl overflow-y-auto max-h-[90vh] flex flex-col gap-5">
 
-          <!-- Nadpis -->
+          <!-- Title -->
           <div class="text-center">
             <h1 class="text-4xl font-black text-yellow-400 drop-shadow-lg tracking-wide">🐦 Flappy Bird</h1>
-            <p class="text-gray-300 text-sm mt-1">Moderní remake</p>
+            <p class="text-gray-300 text-sm mt-1">Modern remake</p>
           </div>
 
-          <!-- Skóre -->
+          <!-- Score -->
           <div class="flex justify-around bg-white/5 rounded-2xl p-3">
             <div class="text-center">
               <div class="text-2xl font-black text-yellow-400">${highScore}</div>
-              <div class="text-gray-400 text-xs">Nejlepší skóre</div>
+              <div class="text-gray-400 text-xs">Best Score</div>
             </div>
             <div class="text-center">
               <div class="text-2xl font-black text-blue-400">${totalGames}</div>
-              <div class="text-gray-400 text-xs">Her celkem</div>
+              <div class="text-gray-400 text-xs">Games</div>
             </div>
             <div class="text-center">
               <div class="text-2xl font-black text-green-400">${avgScore}</div>
-              <div class="text-gray-400 text-xs">Průměr</div>
+              <div class="text-gray-400 text-xs">Average</div>
             </div>
           </div>
 
           <!-- Skin picker -->
           <div>
-            <h2 class="text-white font-bold text-sm mb-2 uppercase tracking-wider">Ptáček</h2>
+            <h2 class="text-white font-bold text-sm mb-2 uppercase tracking-wider">Bird</h2>
             <div class="grid grid-cols-4 gap-2">${skinHTML}</div>
           </div>
 
-          <!-- Obtížnost -->
+          <!-- Difficulty -->
           <div>
-            <h2 class="text-white font-bold text-sm mb-2 uppercase tracking-wider">Obtížnost</h2>
+            <h2 class="text-white font-bold text-sm mb-2 uppercase tracking-wider">Difficulty</h2>
             <div class="flex gap-2">${diffBtns}</div>
           </div>
 
-          <!-- Nastavení -->
+          <!-- Settings -->
           <div class="flex gap-2">
             <button id="sound-toggle" class="flex-1 py-2 rounded-xl bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors">
-              ${soundEnabled ? '🔊 Zvuk: ZAP' : '🔇 Zvuk: VYP'}
+              ${soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF'}
             </button>
             <button id="music-toggle" class="flex-1 py-2 rounded-xl bg-white/10 text-white text-sm font-semibold hover:bg-white/20 transition-colors">
-              ${musicEnabled ? '🎵 Hudba: ZAP' : '🎵 Hudba: VYP'}
+              ${musicEnabled ? '🎵 Music: ON' : '🎵 Music: OFF'}
             </button>
           </div>
 
           <!-- Achievements -->
           <details class="bg-white/5 rounded-2xl p-3">
-            <summary class="text-white font-bold text-sm cursor-pointer uppercase tracking-wider">Achievementy</summary>
+            <summary class="text-white font-bold text-sm cursor-pointer uppercase tracking-wider">Achievements</summary>
             <div class="mt-3 space-y-1">${achieveHTML}</div>
           </details>
 
@@ -183,10 +183,10 @@ export class MenuUI {
           <button id="menu-play-btn"
             class="w-full py-4 rounded-2xl bg-yellow-400 text-gray-900 text-xl font-black uppercase tracking-widest
               hover:bg-yellow-300 active:scale-95 transition-all shadow-lg shadow-yellow-400/30">
-            ▶ HRÁT
+            ▶ PLAY
           </button>
 
-          <p class="text-center text-gray-500 text-xs">Mezerník / klik / tap pro skok • P/ESC pro pauzu • D pro debug</p>
+          <p class="text-center text-gray-500 text-xs">Space / click / tap to flap • P/ESC to pause • D for debug</p>
         </div>
       </div>
     `;

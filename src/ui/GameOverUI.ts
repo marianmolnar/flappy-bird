@@ -2,11 +2,11 @@ import { getGameState } from '../store/gameStore.ts';
 import type { MedalType } from '../types/index.ts';
 
 const MEDAL_CONFIG: Record<MedalType, { emoji: string; label: string; color: string }> = {
-  none: { emoji: '💀', label: 'Žádná medaile', color: '#6B7280' },
-  bronze: { emoji: '🥉', label: 'Bronzová medaile', color: '#CD7F32' },
-  silver: { emoji: '🥈', label: 'Stříbrná medaile', color: '#C0C0C0' },
-  gold: { emoji: '🥇', label: 'Zlatá medaile', color: '#FFD700' },
-  platinum: { emoji: '💎', label: 'Platinová medaile', color: '#E5E4E2' },
+  none: { emoji: '💀', label: 'No medal', color: '#6B7280' },
+  bronze: { emoji: '🥉', label: 'Bronze Medal', color: '#CD7F32' },
+  silver: { emoji: '🥈', label: 'Silver Medal', color: '#C0C0C0' },
+  gold: { emoji: '🥇', label: 'Gold Medal', color: '#FFD700' },
+  platinum: { emoji: '💎', label: 'Platinum Medal', color: '#E5E4E2' },
 };
 
 /**
@@ -51,38 +51,38 @@ export class GameOverUI {
       <div class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
         <div class="w-full max-w-xs mx-4 bg-gray-900/95 rounded-3xl p-7 border border-white/10 shadow-2xl flex flex-col items-center gap-5">
 
-          <h1 class="text-3xl font-black text-red-400 uppercase tracking-widest">Konec hry</h1>
+          <h1 class="text-3xl font-black text-red-400 uppercase tracking-widest">Game Over</h1>
 
-          <!-- Medaile -->
+          <!-- Medal -->
           <div class="flex flex-col items-center gap-1">
             <div class="text-6xl animate-bounce">${medalCfg.emoji}</div>
             <span class="text-sm font-semibold" style="color: ${medalCfg.color}">${medalCfg.label}</span>
           </div>
 
-          <!-- Skóre -->
+          <!-- Score -->
           <div class="w-full bg-white/5 rounded-2xl p-4 flex justify-around">
             <div class="text-center">
               <div class="text-4xl font-black text-white">${score}</div>
-              <div class="text-gray-400 text-xs">Skóre</div>
+              <div class="text-gray-400 text-xs">Score</div>
             </div>
             <div class="w-px bg-white/10"></div>
             <div class="text-center">
               <div class="text-4xl font-black text-yellow-400">${highScore}</div>
-              <div class="text-gray-400 text-xs">Nejlepší</div>
+              <div class="text-gray-400 text-xs">Best</div>
             </div>
           </div>
 
           ${isNewHighScore ? `
             <div class="w-full text-center bg-yellow-400/20 border border-yellow-400/40 rounded-xl py-2 px-4">
-              <span class="text-yellow-400 font-bold text-sm">🏆 Nový rekord!</span>
+              <span class="text-yellow-400 font-bold text-sm">🏆 New record!</span>
             </div>
           ` : ''}
 
-          <!-- Tlačítka -->
+          <!-- Buttons -->
           <button id="gameover-restart"
             class="w-full py-4 rounded-2xl bg-yellow-400 text-gray-900 text-lg font-black uppercase tracking-widest
               hover:bg-yellow-300 active:scale-95 transition-all shadow-lg shadow-yellow-400/30">
-            ↺ ZNOVU
+            ↺ RETRY
           </button>
 
           <button id="gameover-menu"

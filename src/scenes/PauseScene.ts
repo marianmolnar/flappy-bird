@@ -37,7 +37,7 @@ export class PauseScene extends Phaser.Scene {
       const s = getSettings();
       audioManager.setSoundEnabled(!s.soundEnabled);
       const el = document.getElementById('pause-sound');
-      if (el) el.textContent = getSettings().soundEnabled ? '🔊 Zvuk: ZAP' : '🔇 Zvuk: VYP';
+      if (el) el.textContent = getSettings().soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF';
     });
 
     const kb = this.input.keyboard!;
@@ -57,17 +57,17 @@ export class PauseScene extends Phaser.Scene {
           border:1px solid rgba(255,255,255,0.1); max-width:240px; width:100%;
           text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.6);">
           <div style="font-size:2.5rem; margin-bottom:8px;">⏸</div>
-          <h2 style="color:white; font-size:1.4rem; font-weight:900; margin:0 0 24px; letter-spacing:2px;">PAUZA</h2>
+          <h2 style="color:white; font-size:1.4rem; font-weight:900; margin:0 0 24px; letter-spacing:2px;">PAUSED</h2>
           <div style="display:flex; flex-direction:column; gap:10px;">
             <button id="pause-resume" style="
               background:#FFD700; color:#1a1a1a; border:none; border-radius:14px;
               padding:13px 0; font-size:1rem; font-weight:900; cursor:pointer; letter-spacing:1px;">
-              ▶ POKRAČOVAT
+              ▶ RESUME
             </button>
             <button id="pause-sound" style="
               background:rgba(255,255,255,0.1); color:white; border:1px solid rgba(255,255,255,0.2);
               border-radius:14px; padding:11px 0; font-size:0.9rem; font-weight:600; cursor:pointer;">
-              ${settings.soundEnabled ? '🔊 Zvuk: ZAP' : '🔇 Zvuk: VYP'}
+              ${settings.soundEnabled ? '🔊 Sound: ON' : '🔇 Sound: OFF'}
             </button>
             <button id="pause-menu" style="
               background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.7);
@@ -77,7 +77,7 @@ export class PauseScene extends Phaser.Scene {
             </button>
           </div>
           <p style="color:rgba(255,255,255,0.3); font-size:0.7rem; margin:16px 0 0;">
-            P / ESC / Mezerník pro pokračování
+            P / ESC / Space to resume
           </p>
         </div>
       </div>

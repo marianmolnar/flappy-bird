@@ -98,13 +98,13 @@ export class AchievementSystem {
   public static getAll(): Achievement[] {
     const state = getGameState();
     const defs = [
-      { id: ACHIEVEMENT_IDS.FIRST_FLIGHT, name: 'První let', description: 'Dosáhni skóre 1' },
-      { id: ACHIEVEMENT_IDS.BEGINNER, name: 'Začátečník', description: 'Dosáhni skóre 10' },
-      { id: ACHIEVEMENT_IDS.ADVANCED, name: 'Pokročilý', description: 'Dosáhni skóre 25' },
-      { id: ACHIEVEMENT_IDS.EXPERT, name: 'Expert', description: 'Dosáhni skóre 50' },
-      { id: ACHIEVEMENT_IDS.LEGEND, name: 'Legenda', description: 'Dosáhni skóre 100' },
-      { id: ACHIEVEMENT_IDS.VETERAN, name: 'Vytrvalec', description: 'Odehraj 10 her' },
-      { id: ACHIEVEMENT_IDS.COLLECTOR, name: 'Sběratel', description: 'Odemkni všechny skiny' },
+      { id: ACHIEVEMENT_IDS.FIRST_FLIGHT, name: 'First Flight', description: 'Reach a score of 1' },
+      { id: ACHIEVEMENT_IDS.BEGINNER, name: 'Beginner', description: 'Reach a score of 10' },
+      { id: ACHIEVEMENT_IDS.ADVANCED, name: 'Advanced', description: 'Reach a score of 25' },
+      { id: ACHIEVEMENT_IDS.EXPERT, name: 'Expert', description: 'Reach a score of 50' },
+      { id: ACHIEVEMENT_IDS.LEGEND, name: 'Legend', description: 'Reach a score of 100' },
+      { id: ACHIEVEMENT_IDS.VETERAN, name: 'Veteran', description: 'Play 10 games' },
+      { id: ACHIEVEMENT_IDS.COLLECTOR, name: 'Collector', description: 'Unlock every skin' },
     ];
 
     return defs.map((d) => ({ ...d, unlocked: Boolean(state.achievements[d.id]) }));

@@ -58,10 +58,10 @@ export const ACHIEVEMENT_IDS = {
 
 /** Skin configs — original 3 colours + custom rainbow */
 export const SKINS: SkinConfig[] = [
-  { id: 'yellow',  name: 'Žlutý',   color: 0xFFD700, wingColor: 0xFFA500, eyeColor: 0x000000, requiredScore: 0,   label: 'Výchozí'    },
-  { id: 'blue',    name: 'Modrý',   color: 0x4FC3F7, wingColor: 0x0288D1, eyeColor: 0x000000, requiredScore: 25,  label: 'Skóre 25+'  },
-  { id: 'red',     name: 'Červený', color: 0xFF5252, wingColor: 0xC62828, eyeColor: 0xFFFFFF, requiredScore: 50,  label: 'Skóre 50+'  },
-  { id: 'rainbow', name: 'Duhový',  color: 0xFF6EC7, wingColor: 0xA78BFA, eyeColor: 0xFFFFFF, requiredScore: 100, label: 'Skóre 100+' },
+  { id: 'yellow',  name: 'Yellow',  color: 0xFFD700, wingColor: 0xFFA500, eyeColor: 0x000000, requiredScore: 0,   label: 'Default'    },
+  { id: 'blue',    name: 'Blue',    color: 0x4FC3F7, wingColor: 0x0288D1, eyeColor: 0x000000, requiredScore: 25,  label: 'Score 25+'  },
+  { id: 'red',     name: 'Red',     color: 0xFF5252, wingColor: 0xC62828, eyeColor: 0xFFFFFF, requiredScore: 50,  label: 'Score 50+'  },
+  { id: 'rainbow', name: 'Rainbow', color: 0xFF6EC7, wingColor: 0xA78BFA, eyeColor: 0xFFFFFF, requiredScore: 100, label: 'Score 100+' },
 ];
 
 export const STORAGE_KEYS = {
